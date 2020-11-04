@@ -1,12 +1,23 @@
-public class Paragraph implements Element {
-    private String text;
+public class Paragraph implements Element{
+    private String name;
 
-    public void print()
-    {
-        System.out.println("Paragraph: " + this.text);
+    Paragraph(String name){
+        this.name=name;
     }
 
-    public Paragraph(String text) {
-        this.text = text;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void print(){
+        System.out.println("Paragraph with name: "+this.name);
+    }
+
+    public void setAlignStrategy(AlignStrategy strategy) {
+        this.name = strategy.render(this).name;
     }
 }
