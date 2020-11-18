@@ -9,6 +9,10 @@ public class ImageProxy implements Element {
         this.name=name;
     }
 
+    public void accept(Visitor v){
+        v.visit(this);
+    }
+
     public void print() {
         if(realImage==null){
             realImage = new Image(this.name);
@@ -16,7 +20,5 @@ public class ImageProxy implements Element {
         realImage.print();
     }
 
-    @Override
-    public void accept(Visitor visitor) {
-    }
+
 }

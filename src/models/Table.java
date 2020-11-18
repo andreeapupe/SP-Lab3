@@ -9,10 +9,9 @@ public class Table implements Element {
     }
 
     public void print(){
-        System.out.println("models.Table with name: " + this.name);
+        System.out.println("Table with name: " + this.name);
     }
 
-    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

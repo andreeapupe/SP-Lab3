@@ -1,6 +1,5 @@
-import services.BMPImageLoader;
-import services.JPGImageLoader;
-import services.PNGImageLoader;
+package services;
+
 
 import java.io.IOException;
 

@@ -8,15 +8,19 @@ public class BookStatistics implements Visitor {
     private int tables = 0;
     private int sections = 0;
     private int images = 0;
+    private int books = 0;
 
     public void printStatistics() {
-        System.out.println("\nImagesProxy: " +
+        System.out.println("\nBooks: " + books + "\nImagesProxy: " +
                 imagesProxy + "\nParagraphs: " +
                 paragraphs + "\nTables: " +
                 tables + "\nSections: " +
                 sections + "\nImages: " +
                 images);
     }
+
+    @Override
+    public void visit(Book book) { books++; }
 
     @Override
     public void visit(Image image) { images++; }

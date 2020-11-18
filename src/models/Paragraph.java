@@ -1,39 +1,30 @@
 package models;
 import services.*;
-import services.AlignStrategy;
 
 public class Paragraph implements Element {
     private String name;
-    private AlignStrategy strategy;
+    private AlignStrategy alignStrategy;
 
     public Paragraph(String name){
         this.name=name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
+    public void accept(Visitor v) {
+        v.visit(this);
     }
 
     public void print(){
-        if (strategy == null) {
-            System.out.println("models.Paragraph with name: "+this.name);
+        if (alignStrategy == null) {
+            System.out.println(this.name);
         }
         else{
-            strategy.render(this);
+            alignStrategy.render(this.name);
         }
 
     }
 
-    @Override
-    public void accept(Visitor visitor) {
-
-    }
 
     public void setAlignStrategy(AlignStrategy strategy) {
-        this.strategy = strategy;
+        this.alignStrategy = alignStrategy;
     }
 }

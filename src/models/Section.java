@@ -3,28 +3,25 @@ import services.*;
 import java.util.Vector;
 
 public class Section implements Element {
-    String sectionTitle;
-    Vector<Element> content = new Vector<Element>();
-
+    protected String sectionTitle;
+    protected Vector<Element> content = new Vector<Element>();
 
 
     public int add(Element element) {
         content.add(element);
-        return content.size();
+        return content.indexOf(element);
     }
     void remove(Element element) {
-        for(Element i: content) {
-            content.remove(i);
-        }
+            content.remove(element);
     }
 
-    Element getElement(int index) {
+    public Element getElement(int index) {
         return content.get(index);
     }
 
     @Override
     public void print() {
-        System.out.println(sectionTitle);
+        System.out.println("Section: " + sectionTitle);
         for(Element i: content) {
             i.print();
         }
@@ -33,7 +30,6 @@ public class Section implements Element {
         this.sectionTitle = sectionTitle;
     }
 
-    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
         for(Element i:content) {

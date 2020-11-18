@@ -8,7 +8,7 @@ public class Book {
     private ArrayList<Element> content = new ArrayList<>();
     private ArrayList<Author> authors = new ArrayList<>();
 
-    Book(String title){
+    public Book(String title){
         this.title=title;
     }
 
@@ -21,7 +21,7 @@ public class Book {
     }
 
     public void print(){
-        System.out.println("models.Book title: "+this.title);
+        System.out.println("Book title: "+this.title);
         printAuthors();
         for(Element i:content){
             i.print();
@@ -31,6 +31,13 @@ public class Book {
     private void printAuthors(){
         for (Author i: authors){
             i.print();
+        }
+    }
+
+    public void accept(Visitor v) {
+        v.visit(this);
+        for (Element i:content){
+            i.accept(v);
         }
     }
 }
